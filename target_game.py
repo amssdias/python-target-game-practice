@@ -7,6 +7,12 @@ import time
 global LBL_SCORE
 global BTN_RESET
 
+# Introduction
+global FRM_USER_INFO
+global LBL_USER
+global ENT_USERNAME
+global BTN_SUBMIT
+
 # Choose Level
 global FRM_LEVELS
 global LBL_LEVEL
@@ -41,6 +47,25 @@ game_settings = {
         'x_axis_max': 530,
         'y_axis_max': 515}
 }
+
+
+def introduction():
+    global FRM_USER_INFO
+    global LBL_USER
+    global ENT_USERNAME
+    global BTN_SUBMIT
+
+    FRM_USER_INFO = tk.Frame(master=window)
+    FRM_USER_INFO.pack()
+
+    LBL_USER = tk.Label(master=FRM_USER_INFO, text="Choose a username: ", font=("Arial", 20))
+    LBL_USER.pack()
+
+    ENT_USERNAME = tk.Entry(master=FRM_USER_INFO)
+    ENT_USERNAME.pack()
+
+    BTN_SUBMIT = tk.Button(master=FRM_USER_INFO, text="Submit", command=game_levels)
+    BTN_SUBMIT.pack()
 
 
 def game_levels():
@@ -116,7 +141,7 @@ def game_layout(username: str, difficulty: List):
     FRM_INFO = tk.Frame(master=window, padx=10, pady=10)
     LBL_USERNAME = tk.Label(master=FRM_INFO, text=username, font=("Arial", 15))
     LBL_POINTS = tk.Label(master=FRM_INFO, text=0, font=("Arial", 15))
-    LBL_TIME = tk.Label(master=FRM_INFO, text=3, font=("Arial", 15))
+    LBL_TIME = tk.Label(master=FRM_INFO, text=10, font=("Arial", 15))
 
     FRM_INFO.pack(fill=tk.BOTH, side=tk.TOP)
     LBL_USERNAME.pack(side=tk.LEFT)
@@ -188,17 +213,6 @@ window = tk.Tk()
 window.title("Target Practice Game")
 window.geometry("560x600")
 
-FRM_USER_INFO = tk.Frame(master=window)
-FRM_USER_INFO.pack()
-
-LBL_USER = tk.Label(master=FRM_USER_INFO, text="Choose a username: ", font=("Arial", 20))
-LBL_USER.pack()
-
-ENT_USERNAME = tk.Entry(master=FRM_USER_INFO)
-ENT_USERNAME.pack()
-
-BTN_SUBMIT = tk.Button(master=FRM_USER_INFO, text="Submit", command=game_levels)
-BTN_SUBMIT.pack()
-
+introduction()
 
 window.mainloop()
