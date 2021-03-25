@@ -31,6 +31,10 @@ I have build a game where gamers can practice their shooting aim.
 
 ## Functions
 
+### `introduction`
+
+It asks the user for his username and explains briefly the game.
+
 ### `game_levels`
 
 In this function it simply displays the levels for the user to choose (Easy, Intermediate or Hard)

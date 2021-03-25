@@ -56,16 +56,19 @@ def introduction():
     global BTN_SUBMIT
 
     FRM_USER_INFO = tk.Frame(master=window)
-    FRM_USER_INFO.pack()
+    FRM_USER_INFO.pack(fill=tk.BOTH, expand=True)
 
-    LBL_USER = tk.Label(master=FRM_USER_INFO, text="Choose a username: ", font=("Arial", 20))
+    LBL_USER = tk.Label(master=FRM_USER_INFO, text="Choose a username: ", font=("Arial", 20), pady=15)
     LBL_USER.pack()
 
-    ENT_USERNAME = tk.Entry(master=FRM_USER_INFO)
+    ENT_USERNAME = tk.Entry(master=FRM_USER_INFO, font=("Arial", 12))
     ENT_USERNAME.pack()
 
-    BTN_SUBMIT = tk.Button(master=FRM_USER_INFO, text="Submit", command=game_levels)
+    BTN_SUBMIT = tk.Button(master=FRM_USER_INFO, text="Submit", command=game_levels, font=("Arial", 12))
     BTN_SUBMIT.pack()
+
+    LBL_GAME_DETAILS = tk.Label(master=FRM_USER_INFO, text="The goal of this game is to click on \nthe black square as quick as possible \n before the time runs out.", font=("Arial", 13))
+    LBL_GAME_DETAILS.place(width=280, x=140, y=150)
 
 
 def game_levels():
@@ -97,6 +100,7 @@ def game_levels():
         master=FRM_LEVELS, 
         text="Easy", 
         height=3, width=15, 
+        font=("Arial", 12),
         command=lambda : game_layout(game_settings['username'], game_settings['easy'])
         )
 
@@ -104,6 +108,7 @@ def game_levels():
         master=FRM_LEVELS, 
         text="Intermediate", 
         height=3, width=15,
+        font=("Arial", 12),
         command=lambda : game_layout(game_settings['username'], game_settings['intermediate'])
         )
 
@@ -111,6 +116,7 @@ def game_levels():
         master=FRM_LEVELS, 
         text="Hard", 
         height=3, width=15,
+        font=("Arial", 12),
         command=lambda : game_layout(game_settings['username'], game_settings['hard'])
         )
 
